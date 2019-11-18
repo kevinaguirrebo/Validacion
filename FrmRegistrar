@@ -31,9 +31,8 @@ public class FrmIngresarDatos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Nombre:");
+        jLabel1.setText("Nombres y Apellidos:");
 
-        jLabel2.setText("Apellidos:");
 
         jLabel3.setText("Correo:");
 
