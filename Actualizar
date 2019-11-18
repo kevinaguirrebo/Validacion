@@ -1,0 +1,27 @@
+ private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {                                              
+       String documento = txtDocumento.getText();
+        
+        Conexion con = new Conexion();
+        Connection cnx = con.conectar();
+                       
+        try 
+        {
+            PreparedStatement pst = cnx.prepareStatement("UPDATE jugadores SET nombre = ?, equipo = ?, posicion = ?, numero =?, sueldo = ?" + "WHERE Documento = ?");
+            pst.setString(1, txtNombre.getText());
+            pst.setString(2, (String) cboEquipo.getSelectedItem());
+            pst.setString(3, (String) cboPosicion.getSelectedItem());
+            pst.setString(4, txtNumero.getText());
+            pst.setInt(5, Integer.parseInt(txtSueldo.getText()));
+            pst.setString(6, txtDocumento.getText());
+            
+            
+            pst.executeUpdate();
+            listar();
+        } 
+        
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(frmJugador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        limpiar();
+    }                                             
